@@ -1,0 +1,162 @@
+[
+ {
+  "no": "01",
+  "title": "INTEGER CHOIR",
+  "cat": "Maths",
+  "line": "Four voices each sing an integer sequence (Recamán, Collatz, Thue–Morse, digits of pi, primes, Fibonacci mod n) written as one-line recurrence formulas; the value picks the scale degree, negative values rest.",
+  "gemini": "Invents brand-new integer recurrences in a small safe formula language from your description, which the app parses, checks and sings.",
+  "slug": "01-integer-choir"
+ },
+ {
+  "no": "02",
+  "title": "L-SYSTEM GARDEN",
+  "cat": "Maths",
+  "line": "Lindenmayer grammars rewrite a string again and again (F → FF, X → F+[[X]-X]-F[-FX]+X); a turtle draws it as a plant, fractal or Penrose tiling and the same string is read as a score: F plays, + and − step the scale, [ ] branch into new voices.",
+  "gemini": "Writes new L-system grammars (axiom, rules, angle, depth) from a text prompt; the app validates the alphabet, caps growth and draws and plays the result.",
+  "slug": "02-lsystem-garden"
+ },
+ {
+  "no": "03",
+  "title": "STRANGE ATTRACTORS",
+  "cat": "Maths",
+  "line": "A point flies around a chaotic attractor (Lorenz, Rössler, Aizawa, Thomas); every time it pierces the section plane it plays a note (a Poincaré section), and when the Lorenz butterfly flips wings the bass changes, so the rhythm is deterministic but never repeats.",
+  "gemini": "Chooses an attractor, its parameters (including periodic windows hidden in the chaos), the section plane and the musical mapping to match a mood you describe, and explains the choice.",
+  "slug": "03-strange-attractors"
+ },
+ {
+  "no": "04",
+  "title": "MANDELBROT ORBITS",
+  "cat": "Maths",
+  "line": "Pick a point c on the Mandelbrot set and iterate z → z² + c: inside a period-3 bulb the orbit settles into a 3-note loop, near the edge it wanders for ages, and outside it escapes in a burst, so the geography of the set becomes a map of melodies and rhythms.",
+  "gemini": "Acts as a guide to the set's geography: from a description it chooses up to three c points (bulbs, Misiurewicz points, seahorse valley, the Feigenbaum point) and predicts the period you'll hear.",
+  "slug": "04-mandelbrot-orbits"
+ },
+ {
+  "no": "05",
+  "title": "PHYLLOTAXIS",
+  "cat": "Nature",
+  "line": "Seeds are placed like a sunflower's, each turned by the golden angle (137.508°) from the last; the seed's spiral family (its number mod 8, 13 or 21, the Fibonacci parastichies) sets its pitch, so the spirals you see are the melodies you hear.",
+  "gemini": "Turns a plant you name (pine cone, aloe, romanesco, an invented alien flower) into divergence angle, parastichy numbers, growth rate, palette and scale, and explains the botany.",
+  "slug": "05-phyllotaxis"
+ },
+ {
+  "no": "06",
+  "title": "DAWN CHORUS",
+  "cat": "Nature",
+  "line": "Birdsong is a grammar: syllables (sweeps, trills, whistles) build phrases, phrases repeat and vary into songs, and species join the chorus in a set order as the light rises; a live sonogram draws what you hear, and Messiaen mode snaps it to a scale.",
+  "gemini": "Writes the song grammar (syllable frequencies, sweeps, durations, phrase structure, repetition and gaps) for any bird you name, real or invented, which the synth then sings.",
+  "slug": "06-dawn-chorus"
+ },
+ {
+  "no": "07",
+  "title": "SLIME MOULD",
+  "cat": "Nature",
+  "line": "Physarum polycephalum agents sense, turn, move and deposit a trail; with food sources placed like cities they grow an efficient transport network, and each city plays when traffic reaches it, with the busiest hubs playing most often.",
+  "gemini": "Lays out the food network for any place you name (towns, stations, islands) as latitude, longitude and importance, so the mould rebuilds its rail map as music.",
+  "slug": "07-slime-mould"
+ },
+ {
+  "no": "08",
+  "title": "CHANGE RINGING",
+  "cat": "History",
+  "line": "English change ringing (17th century onward): bells never repeat a row, each bell moves at most one place per change, and place notation such as -16-16-16,12 (Plain Bob Minor) unrolls a permutation group until the bells come back to rounds.",
+  "gemini": "Writes place notation for a named method, or invents a new one; the app parses it, rings the plain course and checks whether it is true (no row repeated) and comes round.",
+  "slug": "08-change-ringing"
+ },
+ {
+  "no": "09",
+  "title": "ISORHYTHM",
+  "cat": "History",
+  "line": "The 14th-century Ars Nova motet: a pitch cycle (color) and a rhythm cycle (talea) of different lengths repeat against each other until they realign after their lowest common multiple, and Guido of Arezzo's c.1026 vowel method turns any text into the chant.",
+  "gemini": "Composes a three-voice isorhythmic motet for a theme (text, colors as modal degrees and taleas as durations), which the engine cycles exactly; with no key, the text you type becomes the chant through Guido's vowel table.",
+  "slug": "09-isorhythm"
+ },
+ {
+  "no": "10",
+  "title": "WÜRFELSPIEL",
+  "cat": "History",
+  "line": "The Musikalisches Würfelspiel (published 1792 and attributed to Mozart): for each of 16 bars, two dice choose one of 11 pre-composed bars sharing the same harmony, so every throw makes a correct minuet, with 11^16 (about 46 quadrillion) possible minuets.",
+  "gemini": "Writes a fresh 16 × 6 table of interchangeable bars over a harmonic plan in any style you name; the dice still decide which bar is played.",
+  "slug": "10-wurfelspiel"
+ },
+ {
+  "no": "11",
+  "title": "MONDRIAN",
+  "cat": "Art",
+  "line": "Neo-Plasticism (Mondrian, 1920): only horizontals, verticals, the three primaries and non-colours; a playhead reads the composition left to right, so coloured planes become notes (height gives pitch, width gives duration) and black lines become percussion, with a Broadway Boogie Woogie street-grid mode.",
+  "gemini": "Designs a new Mondrian composition (a list of rectangles on a 32 × 12 grid with primary colours) from any subject or mood, which is then played as a score.",
+  "slug": "11-mondrian"
+ },
+ {
+  "no": "12",
+  "title": "KANDINSKY",
+  "cat": "Art",
+  "line": "Kandinsky's synaesthetic correspondences (Concerning the Spiritual in Art, 1911; Point and Line to Plane, 1926): yellow is a trumpet, blue a cello or organ, red a tuba, triangles are sharp, circles calm, points short and lines are movement, all conducted by a radar sweep.",
+  "gemini": "Interprets any artwork, poem or memory as a Kandinsky composition of coloured points, lines, circles, triangles and squares; the sweep then performs it through the colour-to-timbre rules.",
+  "slug": "12-kandinsky"
+ },
+ {
+  "no": "13",
+  "title": "WALL DRAWING",
+  "cat": "Art",
+  "line": "Sol LeWitt's conceptual wall drawings: \"the idea becomes a machine that makes the art\"; a written instruction is executed by draughtsmen, and every stroke they draw sounds (direction gives pitch, length gives duration), so each new execution is a different performance of the same idea.",
+  "gemini": "Writes a new LeWitt-style instruction in his terse voice plus its machine version (points, connect, lines, arcs, grid), which the draughtsmen carry out and play. Without a key, a small keyword parser reads your own instruction.",
+  "slug": "13-sol-lewitt"
+ },
+ {
+  "no": "14",
+  "title": "THE ART OF NOISES",
+  "cat": "Manifestos",
+  "line": "Luigi Russolo's 1913 Futurist manifesto: break out of the narrow circle of pure sounds and conquer the infinite variety of noise-sounds; eight synthesised intonarumori (howler, roarer, crackler, scraper, burster, buzzer, gurgler, hisser) play a graphic score built from his six families of noise, and pure tones are not allowed.",
+  "gemini": "Writes a noise score for any place or event (which intonarumori enter, when, for how long, and their glissandi), in the spirit of Russolo's Risveglio di una città.",
+  "slug": "14-art-of-noises"
+ },
+ {
+  "no": "15",
+  "title": "DADA CUT-UP",
+  "cat": "Manifestos",
+  "line": "Tristan Tzara's recipe for a Dadaist poem (1920): cut a newspaper article into words, put them in a bag, shake gently, then draw them out one by one; each word becomes a sound (syllables give rhythm, letters give pitch, vowels give timbre) or a slice of your own sample, and the order is pure chance.",
+  "gemini": "Only writes the newspaper: an article in British tabloid or broadsheet style about whatever you name. The bag, not Gemini, decides the order of the poem.",
+  "slug": "15-dada-cut-up"
+ },
+ {
+  "no": "16",
+  "title": "EXQUISITE CORPSE",
+  "cat": "Manifestos",
+  "line": "The Surrealist cadavre exquis (Breton, 1924 manifesto: psychic automatism, free of the control of reason): four players each draw a fold of a body (head, torso, legs, feet) by automatic scribble, seeing only the tail crossing the fold; unfolded, the scribble is the melody and the body is the orchestra.",
+  "gemini": "Plays each folded partner in a separate call: each call sees only the theme and the tail of the previous fold (its last two heights and last word), then returns its words and its scribble.",
+  "slug": "16-exquisite-corpse"
+ },
+ {
+  "no": "17",
+  "title": "FLUXUS EVENT SCORES",
+  "cat": "Manifestos",
+  "line": "George Maciunas's Fluxus Manifesto (1963) asks for living art and anti-art that anyone can perform; event scores are short typed instructions (after La Monte Young's Composition 1960 #7 and George Brecht's Drip Music), and the machine deals a deck of cards and performs each one literally.",
+  "gemini": "Writes new event-score cards in the Fluxus manner: a terse instruction plus its performance in a small action vocabulary (tone, silence, repeat, count, cluster, random, sample, drip), which the performer machine carries out.",
+  "slug": "17-fluxus-event-scores"
+ },
+ {
+  "no": "18",
+  "title": "SUPREMATISM",
+  "cat": "Manifestos",
+  "line": "Kazimir Malevich's Suprematism (1915): the supremacy of pure feeling, with non-objective forms in white space; the Black Square is the zero of form and a drone, and every floating plane is a pure sine tone on the harmonic series (horizontal position gives the harmonic, size gives loudness, colour gives envelope, angle gives pulse).",
+  "gemini": "Translates any representational subject into non-objective Suprematist forms and lists exactly what it removed (the objects, people, horizon) so that only feeling remains.",
+  "slug": "18-suprematism"
+ },
+ {
+  "no": "19",
+  "title": "MUSIC OF CHANGES",
+  "cat": "Manifestos",
+  "line": "John Cage, 'Experimental Music' (1957): give up the wish to control sound and let sounds be themselves; three coins are thrown six times to cast I Ching hexagrams that pick cells from 8×8 charts of sounds (half of them silences), durations, dynamics and layers, and moving lines make a cell mobile so it is replaced once it has been used.",
+  "gemini": "Supplies only the gamut, the raw sounds in the sound chart (tones, aggregates, prepared-piano preparations, noises), and never their order. The coins decide everything else.",
+  "slug": "19-cage-chance"
+ },
+ {
+  "no": "20",
+  "title": "DÉRIVE",
+  "cat": "Manifestos",
+  "line": "Guy Debord, 'Theory of the Dérive' (1956): drop your usual reasons for moving and let the attractions of the terrain draw you; a walker drifts across a Voronoi city whose quarters each have their own ambience (mode, pulse, voice, density), and psychogeographic currents (the red arrows of 'The Naked City') and attractions steer it. You can only nudge it. Détournement plays a borrowed tune backwards and upside down and reverses your samples.",
+  "gemini": "Makes a psychogeographic map of any place you name: its quarters with their ambiences, attractions and repulsions, and the currents between them.",
+  "slug": "20-derive"
+ }
+]

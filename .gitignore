@@ -4,3 +4,5 @@ test/results-*.json
 test/out*
 *.log
 .DS_Store
+test/node_modules
+test/*.wav
