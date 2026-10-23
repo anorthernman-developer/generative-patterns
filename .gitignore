@@ -1,0 +1,6 @@
+test/node_modules/
+test/package-lock.json
+test/results-*.json
+test/out*
+*.log
+.DS_Store

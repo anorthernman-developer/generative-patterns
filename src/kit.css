@@ -1,0 +1,36 @@
+:root{--bg:#0b0a08;--panel:#15130f;--line:#2c2820;--ink:#e9dcc0;--dim:#8c8170;--acc:#ffb000;--acc2:#38e8c6;--hot:#ff4f3a}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font:15px/1.35 'Share Tech Mono',ui-monospace,Consolas,monospace;overflow:hidden}
+body:after{content:"";position:fixed;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(0,0,0,.18) 0 1px,transparent 1px 3px);mix-blend-mode:multiply;z-index:9}
+#gp{display:grid;grid-template-rows:auto 1fr;height:100vh}
+#gp-top{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;padding:7px 10px;border-bottom:2px solid var(--line);background:linear-gradient(#1b1813,#110f0c)}
+#gp-top h1{font:400 26px/1 'VT323',monospace;letter-spacing:.06em;margin:0 8px 0 2px;color:var(--acc);text-shadow:0 0 8px color-mix(in srgb,var(--acc) 60%,transparent)}
+#gp-top .no{font:10px 'Silkscreen',monospace;color:var(--bg);background:var(--acc);padding:3px 5px}
+#gp-top .cat{font:10px 'Silkscreen',monospace;color:var(--acc2);border:1px solid var(--acc2);padding:2px 5px}
+#gp-top a.back{font:10px 'Silkscreen',monospace;color:var(--dim);text-decoration:none}#gp-top a.back:hover{color:var(--acc)}
+.sp{flex:1}
+button,.btn,select,input[type=number],input[type=text],input[type=password],textarea{font:inherit;color:var(--ink);background:#0d0c0a;border:1px solid #3d372c;border-radius:2px;padding:4px 8px}
+button,.btn{cursor:pointer;font:11px 'Silkscreen',monospace;padding:6px 9px;background:linear-gradient(#2a251d,#18150f);box-shadow:inset 0 1px 0 #4a4234,0 2px 0 #000;display:inline-block}
+button:hover,.btn:hover{color:var(--acc);border-color:var(--acc)}button:active{transform:translateY(1px)}
+button.on{color:var(--bg);background:var(--acc);border-color:var(--acc)}button.rec.on{background:var(--hot);border-color:var(--hot);color:#fff;animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:.6}}
+input[type=number]{width:62px}select{max-width:180px}
+label.k{display:inline-flex;align-items:center;gap:5px;font:10px 'Silkscreen',monospace;color:var(--dim)}
+input[type=range]{accent-color:var(--acc);width:90px}
+main{display:grid;grid-template-columns:1fr 350px;min-height:0}
+#gp-stage{position:relative;min-width:0;min-height:0;overflow:hidden;background:radial-gradient(ellipse at center,#14120e,#070605)}
+#gp-cv{position:absolute;inset:0;width:100%;height:100%;display:block}
+#gp-hud{position:absolute;left:10px;bottom:8px;right:10px;font:20px/1.1 'VT323',monospace;color:var(--acc);text-shadow:0 0 6px #000;pointer-events:none;white-space:pre-wrap}
+#gp-drop{position:absolute;inset:0;display:none;align-items:center;justify-content:center;font:28px 'VT323';background:rgba(0,0,0,.7);color:var(--acc2);border:3px dashed var(--acc2)}
+#gp-side{border-left:2px solid var(--line);background:var(--panel);overflow:auto;padding:0 12px 20px}
+#gp-side h2{font:11px 'Silkscreen',monospace;color:var(--acc);margin:16px 0 7px;letter-spacing:.08em;border-bottom:1px dashed var(--line);padding-bottom:4px}
+#gp-side p,#gp-side li{color:#cfc3a9;margin:.4em 0}#gp-side em{color:var(--acc2);font-style:normal}#gp-side ul{padding-left:18px;margin:.3em 0}
+blockquote{margin:.5em 0;padding:6px 10px;border-left:3px solid var(--acc);color:#efe2c4;background:#0f0e0b;font-style:italic}
+.row{display:flex;align-items:center;gap:8px;margin:7px 0;flex-wrap:wrap}.row>label.k{min-width:96px}.row input[type=range]{flex:1;min-width:120px}
+.row .v{font:13px 'Share Tech Mono';color:var(--acc2);min-width:38px;text-align:right}
+textarea{width:100%;min-height:58px;resize:vertical}
+#gp-ai input,#gp-ai select{width:100%}
+#gp-aiout{white-space:pre-wrap;font-size:13px;color:var(--acc2);margin-top:6px;max-height:220px;overflow:auto}
+#gp-status{font-size:12px;color:var(--dim);min-height:1.2em}
+.small{font-size:12px;color:var(--dim)}
+#gp-toast{position:fixed;left:50%;top:60px;transform:translateX(-50%);background:var(--acc);color:#000;padding:6px 12px;font:12px 'Silkscreen';display:none;z-index:10}
+@media (max-width:900px){main{grid-template-columns:1fr;grid-template-rows:60vh auto}html,body{overflow:auto}#gp{height:auto}#gp-side{border-left:0}}
