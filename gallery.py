@@ -15,7 +15,7 @@ for cat, blurb in CATS:
     for m in items:
         cards += f'''<a class="card" href="projects/{m['slug']}.html"><div class="th"><img loading="lazy" src="thumbs/{m['slug']}.jpg" alt="{html.escape(m['title'])} screenshot"><b>{m['no']}</b></div><h3>{html.escape(m['title'])}</h3><p>{html.escape(m['line'])}</p><p class="g"><i>GEMINI</i> {html.escape(m['gemini'])}</p></a>'''
     cards += '</div></section>'
-out = f'''<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+out = f'''<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="data:,">
 <title>GENERATIVE PATTERNS · 20 rule-based music machines</title>
 <meta name="description" content="Twenty self-contained generative music projects built from maths, nature, history, art and art manifestos, with Gemini as an optional pattern generator.">
 <style>{fonts}

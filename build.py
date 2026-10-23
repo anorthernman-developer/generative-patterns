@@ -8,7 +8,7 @@ for f in sorted(glob.glob('src/projects/*.js')):
     slug = os.path.basename(f)[:-3]; meta['slug'] = slug; metas.append(meta)
     extra = re.search(r'/\*CSS(.*?)\*/', src, re.S)
     html = f"""<!doctype html>
-<html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="data:,">
 <title>{meta['no']} {meta['title']} · generative patterns</title>
 <meta name="description" content="{meta['line']}">
 <style>{fonts}
