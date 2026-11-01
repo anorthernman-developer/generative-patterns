@@ -6,3 +6,14 @@ test/out*
 .DS_Store
 test/node_modules
 test/*.wav
+# secrets: never commit keys
+.env
+.env.*
+*.key
+*.pem
+secrets.*
+*.local.json
+# OS and tools
+node_modules/
+.netlify/
+
