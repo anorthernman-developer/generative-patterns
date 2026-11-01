@@ -34,3 +34,5 @@ textarea{width:100%;min-height:58px;resize:vertical}
 .small{font-size:12px;color:var(--dim)}
 #gp-toast{position:fixed;left:50%;top:60px;transform:translateX(-50%);background:var(--acc);color:#000;padding:6px 12px;font:12px 'Silkscreen';display:none;z-index:10}
 @media (max-width:900px){main{grid-template-columns:1fr;grid-template-rows:60vh auto}html,body{overflow:auto}#gp{height:auto}#gp-side{border-left:0}}
+/* accessibility: visible keyboard focus */
+:focus-visible{outline:2px solid currentColor;outline-offset:2px}
