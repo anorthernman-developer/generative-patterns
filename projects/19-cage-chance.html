@@ -45,6 +45,8 @@ textarea{width:100%;min-height:58px;resize:vertical}
 .small{font-size:12px;color:var(--dim)}
 #gp-toast{position:fixed;left:50%;top:60px;transform:translateX(-50%);background:var(--acc);color:#000;padding:6px 12px;font:12px 'Silkscreen';display:none;z-index:10}
 @media (max-width:900px){main{grid-template-columns:1fr;grid-template-rows:60vh auto}html,body{overflow:auto}#gp{height:auto}#gp-side{border-left:0}}
+/* accessibility: visible keyboard focus */
+:focus-visible{outline:2px solid currentColor;outline-offset:2px}
 
 </style></head>
 <body><noscript>This generative music piece needs JavaScript and Web Audio (Chrome or Edge).</noscript>
@@ -215,6 +217,7 @@ const GP = (() => {
   function hud(s) { const e = $('#gp-hud'); if (e && e.textContent !== s) e.textContent = s; }
 
   function init(c) {
+    setTimeout(() => document.querySelectorAll('canvas:not([aria-label])').forEach((cv) => { cv.setAttribute('role', 'img'); cv.setAttribute('aria-label', (document.title.split(' · ')[0] || 'Instrument') + ': visuals that follow the sound'); }), 0); /* accessibility */
     cfg = c; S.bpm = c.bpm || 100; S.spb = c.spb || 4; document.title = `${c.no} ${c.title} · generative patterns`;
     if (c.accent) document.documentElement.style.setProperty('--acc', c.accent); if (c.accent2) document.documentElement.style.setProperty('--acc2', c.accent2);
     const voiceOpts = [['auto', 'voice: auto'], ...Object.keys(VOICES).filter((v) => !DRUMS.has(v) && v !== 'noise' && v !== 'chirp').map((v) => [v, 'voice: ' + v])];
@@ -241,7 +244,7 @@ const GP = (() => {
             h('textarea', { id: 'gp-prompt', placeholder: c.ai.placeholder || '' }),
             h('div', { class: 'row' }, h('button', { id: 'gp-ask' }, c.ai.button || 'ASK GEMINI'), h('span', { id: 'gp-aistat', class: 'small' }, 'No key? The built-in pattern still plays.')),
             h('pre', { id: 'gp-aiout' }),
-            h('details', {}, h('summary', { class: 'small' }, 'Key & model'), h('p', { class: 'small' }, 'Free key from aistudio.google.com/apikey. Stored only in this browser (shared with SR-12 and the other tools) and sent only to generativelanguage.googleapis.com.'), h('input', { id: 'gp-key', type: 'password', placeholder: 'Google AI Studio key', autocomplete: 'off' }), h('div', { class: 'row' }, h('select', { id: 'gp-model' }), h('button', { id: 'gp-forget' }, 'FORGET KEY')))) : '',
+            h('details', {}, h('summary', { class: 'small' }, 'Key & model'), h('p', { class: 'small' }, 'Your key stays in your browser. Get a free key from aistudio.google.com/apikey and paste it here: it is saved only in this browser (localStorage, shared with the other tools on this site), sent only to Google (generativelanguage.googleapis.com) with your requests, and never to us. Press FORGET KEY to delete it. Privacy: no trackers, analytics or cookies.'), h('input', { id: 'gp-key', type: 'password', placeholder: 'Google AI Studio key', autocomplete: 'off' }), h('div', { class: 'row' }, h('select', { id: 'gp-model' }), h('button', { id: 'gp-forget' }, 'FORGET KEY')))) : '',
           h('section', {}, h('h2', {}, 'SAMPLES'), h('pre', { id: 'gp-smp', class: 'small', style: 'white-space:pre-wrap' }), h('p', { class: 'small' }, 'Load files or a whole folder (like F:\\01 Splice Sounds). "pitched" plays each lane\'s sample at the note\'s pitch, "by note" picks a sample per note, "by lane" plays them unpitched. MIDI sends each lane on its own channel.')))),
       h('div', { id: 'gp-toast' })));
     const vs = $('#gp-voice'); voiceOpts.forEach(([v, t]) => vs.append(new Option(t, v))); vs.onchange = () => (S.voiceOverride = vs.value);
@@ -317,7 +320,7 @@ function event(layer, t, step, sd) {
 }
 GP.init({
   id: 'cage-chance', no: '19', title: 'MUSIC OF CHANGES', cat: 'MANIFESTO', bpm: 100, spb: 4, accent: '#a8432b', accent2: '#2e5a87',
-  rule: `<p>John Cage, <em>Experimental Music</em> (1957), paraphrased: the composer gives up the wish to control sound, clears his mind of music, and finds ways <b>to let sounds be themselves</b>. And from the 1949 <em>Lecture on Nothing</em>: <q>I have nothing to say and I am saying it.</q></p>
+  rule: `<p>John Cage, <em>Experimental Music</em> (1957), paraphrased: the composer gives up the wish to control sound, clears his mind of music, and finds ways <b>to let sounds be themselves</b>. And from the 1949 <em>Lecture on Nothing</em>: a talk that is openly about having nothing to say (our paraphrase).</p>
 <p>For <em>Music of Changes</em> (1951) Cage asked the I Ching questions instead of making choices, and this page does the same:</p>
 <ul><li>Three coins are thrown six times (heads 3, tails 2). A total of 6 or 8 is yin, 7 or 9 is yang, and 6 or 9 is a <b>moving</b> line. Reading upwards gives a hexagram from 1 to 64 (in binary or Fu Xi order, not King Wen order).</li>
 <li>Each event casts three hexagrams, which choose a cell from the <b>sound</b> chart, the <b>duration</b> chart and the <b>dynamics</b> chart. Half of the 64 sound cells are silences.</li>
@@ -354,7 +357,7 @@ GP.init({
   ai: {
     title: 'GAMUT ONLY', button: 'ASK FOR A GAMUT', placeholder: 'a kitchen at 3am, prepared with screws and rubber',
     help: 'Gemini supplies only the gamut, 16 to 32 raw sounds, and never their order, timing or loudness. The coins decide all of that. Each sound can be a tone, an aggregate (a fixed chord), a preparation (a bolt or rubber on a piano string) or a noise.',
-    system: `You are helping John Cage make a gamut for a chance composition (like Music of Changes, 1951). Return 16-32 sounds. Each: {kind: tone|aggregate|prepared|noise|sample, notes: array of MIDI numbers 24-100 (1 for tone/prepared/noise, 2-5 for aggregate), label: short description, e.g. 'bolt between strings, E2'}. Make them varied in register and character; avoid tonal chords; do NOT specify order, rhythm or dynamics (the I Ching decides those). Reply JSON only.`,
+    system: `You make a gamut (a fixed set of sounds) for a chance composition, as in 1950s chance music. Return 16-32 sounds. Each: {kind: tone|aggregate|prepared|noise|sample, notes: array of MIDI numbers 24-100 (1 for tone/prepared/noise, 2-5 for aggregate), label: short description, e.g. 'bolt between strings, E2'}. Make them varied in register and character; avoid tonal chords; do NOT specify order, rhythm or dynamics (the I Ching decides those). Reply JSON only.`,
     schema: { type: 'object', properties: { title: { type: 'string' }, sounds: { type: 'array', items: { type: 'object', properties: { kind: { type: 'string', enum: Object.keys(KINDS) }, notes: { type: 'array', items: { type: 'integer' } }, label: { type: 'string' } }, required: ['kind', 'notes'] } } }, required: ['sounds'] },
     apply(r) { const G = (r.sounds || []).filter((s) => KINDS[s.kind] && Array.isArray(s.notes) && s.notes.length).slice(0, 32).map((s) => ({ kind: s.kind, notes: s.notes.slice(0, 5).map((m) => GP.num(m, 24, 100, 60)), label: String(s.label || s.kind).slice(0, 40) })); if (G.length < 4) throw new Error('gamut too small'); buildCharts(G, Date.now()); title = String(r.title || 'Gamut').slice(0, 50); return `${title}: ${G.length} sounds in the chart, with 32 silences. The coins decide the rest.\n` + G.map((s, i) => `${i + 1}. ${s.label}`).join('\n'); },
     fallback(prompt) { buildCharts(defaultGamut(GP.hash(prompt || 'cage')), GP.hash(prompt || 'cage') + 1); title = 'Gamut from "' + String(prompt || '').slice(0, 24) + '"'; },

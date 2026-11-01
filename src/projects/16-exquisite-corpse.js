@@ -9,7 +9,7 @@ const at = (line, f) => { const x = f * (line.length - 1), i = Math.floor(x), fr
 let lastDeg = [null, null, null, null];
 GP.init({
   id: 'exquisite-corpse', no: '16', title: 'EXQUISITE CORPSE', cat: 'MANIFESTO', bpm: 104, spb: 4, accent: '#e94f37', accent2: '#f6c85f',
-  rule: `<p>André Breton, <em>Manifesto of Surrealism</em> (1924), defines Surrealism as <q>psychic automatism in its pure state</q>: thought dictated without any control by reason and outside any aesthetic or moral concern.</p>
+  rule: `<p>André Breton, <em>Manifesto of Surrealism</em> (1924), defines Surrealism as pure psychic automatism (our paraphrase): thought written down without any control by reason and outside any aesthetic or moral concern.</p>
 <p>The Surrealists' parlour game, the <em>cadavre exquis</em>, named after its first sentence "the exquisite corpse will drink the new wine", works like this:</p>
 <blockquote>Fold the paper. Each player draws a part of a body, sees only the lines crossing the fold from the previous part, then folds their own part away and passes the paper on.</blockquote>
 <p>There are four folds: HEAD, TORSO, LEGS and FEET. Each fold is an automatic scribble with <b>no undo</b>, which you can draw yourself by dragging across the fold. When the paper is unfolded, the scribble line is the melody (height is pitch), and the body is the orchestra: the head is a bell, the torso a marimba, the legs a pluck and the feet the bass. The sentence is assembled the same way.</p>`,
@@ -48,7 +48,7 @@ GP.init({
   ai: {
     title: 'FOUR FOLDED PARTNERS', button: 'PLAY THE GAME', placeholder: 'a corpse about the North Sea / a lighthouse keeper\'s dream',
     help: 'Gemini plays four partners in four separate calls. Each one sees only the theme, which body part it has, and the tail of the previous fold (two heights and one word), never the whole drawing.',
-    system: `You are one player in the Surrealist game cadavre exquis (exquisite corpse). Breton: "psychic automatism in its pure state", without control by reason. You draw ONE fold of a body (head, torso, legs or feet) and write its fragment of the sentence (fold 1: adjective + noun subject, e.g. "The exquisite corpse"; fold 2: a verb phrase; fold 3: an object; fold 4: a closing adverbial). You only see the tail crossing the fold: your line MUST start near the given start height. Return words (2-6 words) and line = 16-32 heights 0..1 (0 = top of your fold) - a jagged, surprising automatic scribble, not a smooth curve. Reply JSON only.`,
+    system: `You are one player in the Surrealist game cadavre exquis (exquisite corpse). Write automatically, without reason in control. You draw ONE fold of a body (head, torso, legs or feet) and write its fragment of the sentence (fold 1: adjective + noun subject, e.g. "The exquisite corpse"; fold 2: a verb phrase; fold 3: an object; fold 4: a closing adverbial). You only see the tail crossing the fold: your line MUST start near the given start height. Return words (2-6 words) and line = 16-32 heights 0..1 (0 = top of your fold) - a jagged, surprising automatic scribble, not a smooth curve. Reply JSON only.`,
     schema: { type: 'object', properties: { words: { type: 'string' }, line: { type: 'array', minItems: 8, maxItems: 40, items: { type: 'number' } } }, required: ['words', 'line'] },
     user: (prompt) => `Theme: ${prompt}\nYou are fold 1 of 4: the HEAD. Nothing is above you. Start your line at height 0.5.`,
     async apply(r, prompt) {

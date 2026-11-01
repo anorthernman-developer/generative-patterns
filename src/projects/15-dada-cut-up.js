@@ -20,7 +20,7 @@ function sayWord(w, t, sd) {
 GP.init({
   id: 'dada-cut-up', no: '15', title: 'DADA CUT-UP', cat: 'MANIFESTO', bpm: 132, spb: 4, accent: '#ff3b6b', accent2: '#f7e463',
   rule: `<p>Tristan Tzara, <em>To make a Dadaist poem</em> (1920), paraphrased:</p>
-<blockquote>Take a newspaper and some scissors. Choose an article as long as the poem you want. Cut it out, then cut out each word and put them all in a bag. Shake gently. Take the cuttings out one after another and copy them in the order they leave the bag. <q>The poem will resemble you.</q></blockquote>
+<p>In our words: cut a newspaper article into single words, shake them in a bag, and copy them out in the order they come out. The result, he promised, will be like you.</p>
 <p>Here the bag is the composer. Each word sounds as it comes out. <b>Syllables</b> give the rhythm, <b>letters</b> pick pitches from the scale, and <b>vowels</b> choose the voice (a/o marimba, e/i glass, u reed). A capital letter adds a clap, a comma a woodblock and a full stop a kick. Load a sample and every word cuts its own slice from it instead.</p>`,
   setup() {
     setupSlice();

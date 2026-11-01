@@ -45,6 +45,8 @@ textarea{width:100%;min-height:58px;resize:vertical}
 .small{font-size:12px;color:var(--dim)}
 #gp-toast{position:fixed;left:50%;top:60px;transform:translateX(-50%);background:var(--acc);color:#000;padding:6px 12px;font:12px 'Silkscreen';display:none;z-index:10}
 @media (max-width:900px){main{grid-template-columns:1fr;grid-template-rows:60vh auto}html,body{overflow:auto}#gp{height:auto}#gp-side{border-left:0}}
+/* accessibility: visible keyboard focus */
+:focus-visible{outline:2px solid currentColor;outline-offset:2px}
 
 </style></head>
 <body><noscript>This generative music piece needs JavaScript and Web Audio (Chrome or Edge).</noscript>
@@ -215,6 +217,7 @@ const GP = (() => {
   function hud(s) { const e = $('#gp-hud'); if (e && e.textContent !== s) e.textContent = s; }
 
   function init(c) {
+    setTimeout(() => document.querySelectorAll('canvas:not([aria-label])').forEach((cv) => { cv.setAttribute('role', 'img'); cv.setAttribute('aria-label', (document.title.split(' · ')[0] || 'Instrument') + ': visuals that follow the sound'); }), 0); /* accessibility */
     cfg = c; S.bpm = c.bpm || 100; S.spb = c.spb || 4; document.title = `${c.no} ${c.title} · generative patterns`;
     if (c.accent) document.documentElement.style.setProperty('--acc', c.accent); if (c.accent2) document.documentElement.style.setProperty('--acc2', c.accent2);
     const voiceOpts = [['auto', 'voice: auto'], ...Object.keys(VOICES).filter((v) => !DRUMS.has(v) && v !== 'noise' && v !== 'chirp').map((v) => [v, 'voice: ' + v])];
@@ -241,7 +244,7 @@ const GP = (() => {
             h('textarea', { id: 'gp-prompt', placeholder: c.ai.placeholder || '' }),
             h('div', { class: 'row' }, h('button', { id: 'gp-ask' }, c.ai.button || 'ASK GEMINI'), h('span', { id: 'gp-aistat', class: 'small' }, 'No key? The built-in pattern still plays.')),
             h('pre', { id: 'gp-aiout' }),
-            h('details', {}, h('summary', { class: 'small' }, 'Key & model'), h('p', { class: 'small' }, 'Free key from aistudio.google.com/apikey. Stored only in this browser (shared with SR-12 and the other tools) and sent only to generativelanguage.googleapis.com.'), h('input', { id: 'gp-key', type: 'password', placeholder: 'Google AI Studio key', autocomplete: 'off' }), h('div', { class: 'row' }, h('select', { id: 'gp-model' }), h('button', { id: 'gp-forget' }, 'FORGET KEY')))) : '',
+            h('details', {}, h('summary', { class: 'small' }, 'Key & model'), h('p', { class: 'small' }, 'Your key stays in your browser. Get a free key from aistudio.google.com/apikey and paste it here: it is saved only in this browser (localStorage, shared with the other tools on this site), sent only to Google (generativelanguage.googleapis.com) with your requests, and never to us. Press FORGET KEY to delete it. Privacy: no trackers, analytics or cookies.'), h('input', { id: 'gp-key', type: 'password', placeholder: 'Google AI Studio key', autocomplete: 'off' }), h('div', { class: 'row' }, h('select', { id: 'gp-model' }), h('button', { id: 'gp-forget' }, 'FORGET KEY')))) : '',
           h('section', {}, h('h2', {}, 'SAMPLES'), h('pre', { id: 'gp-smp', class: 'small', style: 'white-space:pre-wrap' }), h('p', { class: 'small' }, 'Load files or a whole folder (like F:\\01 Splice Sounds). "pitched" plays each lane\'s sample at the note\'s pitch, "by note" picks a sample per note, "by lane" plays them unpitched. MIDI sends each lane on its own channel.')))),
       h('div', { id: 'gp-toast' })));
     const vs = $('#gp-voice'); voiceOpts.forEach(([v, t]) => vs.append(new Option(t, v))); vs.onchange = () => (S.voiceOverride = vs.value);

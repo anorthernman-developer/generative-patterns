@@ -81,15 +81,15 @@
  },
  {
   "no": "11",
-  "title": "MONDRIAN",
+  "title": "NEO-PLASTIC GRID",
   "cat": "Art",
   "line": "Neo-Plasticism (Mondrian, 1920): only horizontals, verticals, the three primaries and non-colours; a playhead reads the composition left to right, so coloured planes become notes (height gives pitch, width gives duration) and black lines become percussion, with a Broadway Boogie Woogie street-grid mode.",
-  "gemini": "Designs a new Mondrian composition (a list of rectangles on a 32 × 12 grid with primary colours) from any subject or mood, which is then played as a score.",
+  "gemini": "Designs a new Neo-Plastic composition (a list of rectangles on a 32 × 12 grid with primary colours) from any subject or mood, which is then played as a score.",
   "slug": "11-mondrian"
  },
  {
   "no": "12",
-  "title": "KANDINSKY",
+  "title": "COLOUR-SOUND",
   "cat": "Art",
   "line": "Kandinsky's synaesthetic correspondences (Concerning the Spiritual in Art, 1911; Point and Line to Plane, 1926): yellow is a trumpet, blue a cello or organ, red a tuba, triangles are sharp, circles calm, points short and lines are movement, all conducted by a radar sweep.",
   "gemini": "Interprets any artwork, poem or memory as a Kandinsky composition of coloured points, lines, circles, triangles and squares; the sweep then performs it through the colour-to-timbre rules.",
@@ -99,8 +99,8 @@
   "no": "13",
   "title": "WALL DRAWING",
   "cat": "Art",
-  "line": "Sol LeWitt's conceptual wall drawings: \"the idea becomes a machine that makes the art\"; a written instruction is executed by draughtsmen, and every stroke they draw sounds (direction gives pitch, length gives duration), so each new execution is a different performance of the same idea.",
-  "gemini": "Writes a new LeWitt-style instruction in his terse voice plus its machine version (points, connect, lines, arcs, grid), which the draughtsmen carry out and play. Without a key, a small keyword parser reads your own instruction.",
+  "line": "Sol LeWitt's conceptual wall drawings: the idea is the machine that makes the work (in our words); a written instruction is executed by draughtsmen, and every stroke they draw sounds (direction gives pitch, length gives duration), so each new execution is a different performance of the same idea.",
+  "gemini": "Writes a new conceptual-art instruction in plain, terse language plus its machine version (points, connect, lines, arcs, grid), which the draughtsmen carry out and play. Without a key, a small keyword parser reads your own instruction.",
   "slug": "13-sol-lewitt"
  },
  {
